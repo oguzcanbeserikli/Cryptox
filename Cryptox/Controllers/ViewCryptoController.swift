@@ -8,9 +8,9 @@
 import UIKit
 
 class ViewCryptoController: UIViewController {
-
+    
     // MARK: - Variables
-    private let coin: Coin
+    let viewModel: ViewCryptoControllerViewModel
     
     // MARK: - UI Components
     private let scrollView: UIScrollView = {
@@ -28,7 +28,6 @@ class ViewCryptoController: UIViewController {
         iv.contentMode = .scaleAspectFit
         iv.image = UIImage(systemName: "questionmark")
         iv.tintColor = .black
-        iv.backgroundColor = .label
         return iv
     }()
     
@@ -78,8 +77,8 @@ class ViewCryptoController: UIViewController {
     }()
     
     // MARK: - Lifecycle
-    init(_ coin: Coin) {
-        self.coin = coin
+    init(_ viewModel: ViewCryptoControllerViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -92,13 +91,19 @@ class ViewCryptoController: UIViewController {
         self.setupUI()
         
         self.view.backgroundColor = .systemBackground
-        self.navigationItem.title = self.coin.name
+        self.navigationItem.title = self.viewModel.coin.name
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: nil, action: nil)
         
-        self.rankLabel.text = self.coin.cmc_rank.description
-        self.priceLabel.text = self.coin.quote.CAD.price.description
-        self.marketCapLabel.text = self.coin.quote.CAD.market_cap.description
-        self.maxSupplyLabel.text = self.coin.max_supply?.description
+        self.rankLabel.text = self.viewModel.rankLabel
+        self.priceLabel.text = self.viewModel.priceLabel
+        self.marketCapLabel.text = self.viewModel.marketCapLabel
+        
+        self.maxSupplyLabel.text = self.viewModel.maxSupplyLabel
+        self.viewModel.onImageLoaded = { [weak self] logoImage in
+            DispatchQueue.main.async {
+                self?.coinLogo.image = logoImage
+            }
+        }
     }
     
     // MARK: - UI Setup
@@ -123,22 +128,22 @@ class ViewCryptoController: UIViewController {
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
             scrollView.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor),
-            scrollView.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor),
+            scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
             
-            
-            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.layoutMarginsGuide.bottomAnchor),
-            contentView.widthAnchor.constraint(equalTo: scrollView.layoutMarginsGuide.widthAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
             coinLogo.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
             coinLogo.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 20),
             coinLogo.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
             coinLogo.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            coinLogo.heightAnchor.constraint(equalToConstant: 200),
             
             vStack.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            vStack.topAnchor.constraint(equalTo: self.coinLogo.bottomAnchor, constant: 20),
+            vStack.topAnchor.constraint(equalTo: coinLogo.bottomAnchor, constant: 20),
             vStack.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
             vStack.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
             vStack.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
