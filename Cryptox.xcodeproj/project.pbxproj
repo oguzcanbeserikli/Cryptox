@@ -11,6 +11,8 @@
 		B1513D232C480AF80091EEEA /* CoinError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1513D222C480AF80091EEEA /* CoinError.swift */; };
 		B1513D252C495D4B0091EEEA /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1513D242C495D4B0091EEEA /* HTTP.swift */; };
 		B1513D272C4962F60091EEEA /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1513D262C4962F60091EEEA /* Endpoint.swift */; };
+		B1513D292C496DBF0091EEEA /* CoinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1513D282C496DBF0091EEEA /* CoinService.swift */; };
+		B1513D2B2C49B7F40091EEEA /* HomeControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1513D2A2C49B7F40091EEEA /* HomeControllerViewModel.swift */; };
 		B1FD37882C46967C00D3DCED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FD37872C46967C00D3DCED /* AppDelegate.swift */; };
 		B1FD378A2C46967C00D3DCED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FD37892C46967C00D3DCED /* SceneDelegate.swift */; };
 		B1FD378C2C46967C00D3DCED /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FD378B2C46967C00D3DCED /* HomeController.swift */; };
@@ -26,6 +28,8 @@
 		B1513D222C480AF80091EEEA /* CoinError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinError.swift; sourceTree = "<group>"; };
 		B1513D242C495D4B0091EEEA /* HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
 		B1513D262C4962F60091EEEA /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		B1513D282C496DBF0091EEEA /* CoinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinService.swift; sourceTree = "<group>"; };
+		B1513D2A2C49B7F40091EEEA /* HomeControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeControllerViewModel.swift; sourceTree = "<group>"; };
 		B1FD37842C46967C00D3DCED /* Cryptox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1FD37872C46967C00D3DCED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1FD37892C46967C00D3DCED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				B1513D202C47F83F0091EEEA /* ViewCryptoControllerViewModel.swift */,
+				B1513D2A2C49B7F40091EEEA /* HomeControllerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 			children = (
 				B1513D242C495D4B0091EEEA /* HTTP.swift */,
 				B1513D262C4962F60091EEEA /* Endpoint.swift */,
+				B1513D282C496DBF0091EEEA /* CoinService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -210,8 +216,10 @@
 				B1513D252C495D4B0091EEEA /* HTTP.swift in Sources */,
 				B1513D232C480AF80091EEEA /* CoinError.swift in Sources */,
 				B1FD37A72C47C6B500D3DCED /* Coin.swift in Sources */,
+				B1513D2B2C49B7F40091EEEA /* HomeControllerViewModel.swift in Sources */,
 				B1FD37A92C47CA3D00D3DCED /* CoinCell.swift in Sources */,
 				B1513D272C4962F60091EEEA /* Endpoint.swift in Sources */,
+				B1513D292C496DBF0091EEEA /* CoinService.swift in Sources */,
 				B1FD37A52C46984200D3DCED /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
